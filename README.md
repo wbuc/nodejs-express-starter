@@ -1,4 +1,5 @@
 # nodejs-express-starter
+Starter example for an Express.js API with general examples of creating a basic API.
 
 ## Express API 101
 
