@@ -4,12 +4,8 @@ const app = express();
 
 app.use(express.json());
 
-const myLogger = (req, res, next)=>{
-  console.log('logged...');
-  next();
-}
-app.use(myLogger);
 // MAGIC START ***
+
 
 // GET
 app.get("/fileroom", (req, res, next) => {
@@ -36,20 +32,16 @@ app.post("/fileroom", (req, res, next) => {
 });
 
 // Helper functions
-const isValidId = (req, res, next)=>{
+const isValidId = (req, res, next) => {
   const id = req.params.id;
   res.locals.isValid = id > 10 ? true : false;
   next();
-}
-const sendIdResult = (req, res, next)=>{
+};
+const sendIdResult = (req, res, next) => {
   res.send(res.locals.isValid);
-}
+};
 // DELETE
-app.delete(
-  "/fileroom/:id",
-  isValidId,
-  sendIdResult
-);
+app.delete("/fileroom/:id", isValidId, sendIdResult);
 
 // MAGIC END ***
 

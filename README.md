@@ -26,7 +26,7 @@ Starter example for an Express.js API with general examples of creating a basic 
 ## Use Custom Middleware
 ```javascript
 const myLogger = (req, res, next) => {
-  console.log("logged...");
+  console.log(`${req.method} ${req.url}`);
   next();
 };
 app.use(myLogger);
