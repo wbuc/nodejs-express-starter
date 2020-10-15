@@ -6,31 +6,26 @@ app.use(express.json());
 
 // MAGIC START ***
 
-
 // GET
 app.get("/fileroom", (req, res, next) => {
   res.send("Done GET!");
 });
-
 // GET:id
 app.get("/fileroom/:id", (req, res, next) => {
   const id = req.params.id;
   res.status(200).send(`Received ${id}!`);
 });
-
 // PUT
 app.put("/fileroom/:id", (req, res, next) => {
   const id = req.params.id;
   const data = req.body;
   res.status(200).json({ id, data });
 });
-
 // POST
 app.post("/fileroom", (req, res, next) => {
   const data = req.body;
   res.status(200).json({ message: "Save done!", data });
 });
-
 // Helper functions
 const isValidId = (req, res, next) => {
   const id = req.params.id;
