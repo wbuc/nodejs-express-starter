@@ -4,6 +4,11 @@ const app = express();
 
 app.use(express.json());
 
+const myLogger = (req, res, next)=>{
+  console.log('logged...');
+  next();
+}
+app.use(myLogger);
 // MAGIC START ***
 
 // GET
@@ -39,7 +44,6 @@ const isValidId = (req, res, next)=>{
 const sendIdResult = (req, res, next)=>{
   res.send(res.locals.isValid);
 }
-
 // DELETE
 app.delete(
   "/fileroom/:id",

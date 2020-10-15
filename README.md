@@ -22,4 +22,14 @@ Starter example for an Express.js API with general examples of creating a basic 
  res.redirect("/fileroom");
 ```
 
+
+## Use Custom Middleware
+```javascript
+const myLogger = (req, res, next) => {
+  console.log("logged...");
+  next();
+};
+app.use(myLogger);
+```
+
 https://expressjs.com/en/api.html#express
