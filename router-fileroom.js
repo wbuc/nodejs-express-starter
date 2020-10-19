@@ -62,7 +62,7 @@ router.post("/", (req, res, next) => {
   const jsonArray = JSON.parse(jsonString); // parse to JSON
   
   // Prep data
-  data.id = Math.floor(Math.random() * 100 + 1); // assign random dummy ID.
+  data.id = Math.floor(Math.random() * 100 + 1); // assign random dummy ID between 1 - 100.
   jsonArray.push(data);
 
   // Save data
